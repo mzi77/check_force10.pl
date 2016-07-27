@@ -1,5 +1,5 @@
 # check_force10.pl
-Nagios plugin for Dell FTOS switches with FTOS version > 9.10
+Nagios plugin for Dell FTOS switches with FTOS version => 9.10
 
 ## usage
 ```
