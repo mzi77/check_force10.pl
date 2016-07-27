@@ -68,7 +68,7 @@ my $cpu_critical = 0;
 
 sub print_help()
 {
-  print "Usage: check_dell_powerconnect -H host -C community\n";
+  print "Usage: check_force10.pl -H host -C community [OPTIONS]\n";
   print "Options:\n";
   print " -H STRING or IPADDRESS\n";
   print "   Check interface on the indicated host.\n";

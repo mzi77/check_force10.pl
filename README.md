@@ -3,7 +3,7 @@ Nagios plugin for Dell FTOS switches with FTOS version > 9.10
 
 ## usage
 ```
-Usage: check_dell_powerconnect -H host -C community
+Usage: check_force10.pl -H host -C community [OPTIONS]
 Options:
  -H STRING or IPADDRESS
    Check interface on the indicated host.
