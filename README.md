@@ -18,6 +18,10 @@ Options:
  -cc INT
    CPU load critical treshold.
 This  Plugin checks the hardware of DELL Networking FTOS 9.10 and later
-switches (fans, temp-sensor, power supply,cpu and memory), and probably
-more models! (not tested)
+switches (fans, temp-sensor, power supply,cpu and memory)
+
+Tested on FTOS 9.10(0.1P3) on S4048 and S4810
+
+This plugin works only for standalone switches, it won't work for stacks.
+
 ```

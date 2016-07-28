@@ -198,8 +198,8 @@ my ($session, $error)       = get_snmp_session($ip, $community);
 
 my $oid_unitdesc    = ".1.3.6.1.4.1.674.10895.3000.1.2.100.1.0"; 
 my $oid_unitstate   = ".1.3.6.1.4.1.674.10895.3000.1.2.110.1.0"; 
-#my $oid_tempstatus	= ".1.3.6.1.4.1.89.53.15.1.9.1";
-my $oid_tempstatus	= ".1.3.6.1.4.1.6027.3.26.1.3.4.1.13.1";
+#my $oid_tempstatus  = ".1.3.6.1.4.1.6027.3.26.1.3.4.1.13.1";
+my $oid_tempstatus	= ".1.3.6.1.4.1.6027.3.26.1.3.4.1.13";
 my $oid_fanname     = ".1.3.6.1.4.1.674.10895.3000.1.2.110.7.1.1.2";
 my $oid_fanstate    = ".1.3.6.1.4.1.674.10895.3000.1.2.110.7.1.1.3";
 my $oid_psuname     = ".1.3.6.1.4.1.674.10895.3000.1.2.110.7.2.1.2";
@@ -224,9 +224,14 @@ my $unitstate = $result{$oid_unitstate};
 #my $temperature = "";
 #    if ($unitdesc =~ /35/i) {
 my $temperature = "";
-   %result    = %{get_snmp_request($session, $oid_tempstatus)};
-my $tempstatus = $result{$oid_tempstatus};
-$temperature .=$tempstatus;	
+   %result    = %{get_snmp_table($session, $oid_tempstatus)};
+foreach my $oid(sort keys %result)
+{
+    $temperature = $result{$oid};
+}
+ 
+#my $tempstatus = $result{$oid_tempstatus};
+#$temperature .=$tempstatus;	
 #    }
 
 my %result1    = %{get_snmp_table($session, $oid_fanname)};
