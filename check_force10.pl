@@ -154,13 +154,27 @@ sub get_snmp_request
 {
   my $session = $_[0];
   my $oid     = $_[1];
-  return $session->get_request($oid);
+  my $result = $session->get_request($oid);
+  if (! defined $result) {
+      printf "ERROR: %s.\n", $session->error();
+      $session->close();
+      exit 1;
+    } else {
+        return $result;
+    }
 }
 sub get_snmp_table
 {
   my $session = $_[0];
   my $oid     = $_[1];
-  return $session->get_table($oid);
+  my $result =  $session->get_table($oid);
+  if (! defined $result) {
+      printf "ERROR: %s.\n", $session->error();
+      $session->close();
+      exit 1;
+    } else {
+        return $result;
+    }
 }
 
 
